@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html manifest="iworld.manifest" lang="en-us">
+<head>
+<title>iWorld 0.9 beta</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="content-script-type" content="text/javascript">
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+</head>
+<body>
+
+	<link  href="css/iworld.css" media="all" rel="stylesheet" />
+	<!-- BEGIN wrapper -->
+	<div id="wrapper">
+
+		<div id="header">
+			<div id="toolbar">
+				<div id="buttonbar" class="buttons">
+					<div id="newproject" class="button">
+						<div id="buttonPlus"></div>
+					</div>
+					<div id="workbench" class="button">
+						<div id="buttonEdit">Workbench</div>
+					</div>
+					<div id="preview" class="button">
+						<div id="buttonPreview">Preview</div>
+					</div>
+					<div id="download" class="button">
+						<div id="buttonDownload">Download</div>
+					</div>
+					<div id="assignees" class="button">
+						<div id="buttonAssignees">Assignees</div>
+					</div>
+					<div id="completestep" class="button">
+						<div id="buttonComplete">Complete</div>
+					</div>
+					<div id="morebutton" class="button">
+						<div id="buttonGears"></div>
+					</div>
+				</div>
+				<div id="login">
+					<div id="signout" class="signout">
+						<div>Christof Pintaske</div>
+					</div>
+				</div>
+				<div id="search">
+					<input id="searchbox" placeholder="Search" autosave="iWorld" results="5" type="search">
+					<div id="search_spinner"></div>
+				</div>
+				<div id="search_results"></div>
+			</div>
+		</div>
+
+		<div id="container">
+			<div id="leftColumn">
+				<div id="folderlist" class="folder-list">
+					<ul>
+						<li id="Inbox-filter" name="Inbox" class="folder-item active"><div class="filterInbox">Inbox</div></li>
+						<li id="All-filter" name="All" class="folder-item"><div class="filterAll">All</div></li>
+					</ul>
+				</div>
+			</div>
+			<div id="rightColumn">
+				<div id="projectgroupsheader" class="projectgroupsheader">
+					<div class="col label-name" name="name">Name</div>
+					<div class="col label-workgroup" name="workgroup">Workgroup</div>
+					<div class="col label-category" name="category">Category</div>
+					<div class="col label-region" name="region">Region</div>
+					<div class="col label-created desc" name="created">Created</div>
+					<div class="col label-duedate" name="duedate">Due</div>
+					<div class="col label-id" name="id">ID</div>
+					<div class="col label-progress" name="progress">Progress</div>
+					<div class="col label-wordcount" name="wordcount">Words</div>
+					<div class="col label-status" name="status"></div>
+					<div class="col label-users" name="users">Users</div>
+					<div class="col label-workflow" name="workflow">Workflow</div>
+				</div>
+				<div id="projectgroups" class="projectgroups" style="height: 528px;">
+					<script type="template" id="template1">
+					<div class="projectgroup" id="54472_projectgroup">
+						<div class="row active" rowid="54472" rowtype="projectgroup">
+							<div class="col toggle"></div>
+							<div class="col name">{{name}}</div>
+							<div class="col workgroup">{{workgroup}}</div>
+							<div class="col category">{{category}}</div>
+							<div class="col region">{{region}}</div>
+							<div class="col date">{{create_date}}</div>
+							<div class="col duedate" style="color: rgb(255, 32, 32);">{{due_date}}</div>
+							<div class="col id">54472</div>
+							<div class="col progress" value="3">
+								<div class="progress-bar-white"></div>
+								<div class="progress-bar-blue" style="width: {{progres}}px;"></div>
+							</div>
+							<div class="col wordcount">{{words}}</div>
+							<div class="col status" status="{{status}}"></div>
+							<div class="col users">
+								<div class="usertype created" usertype="MobileMe_ProjectManager">{{users}}</div>
+							</div>
+							<div class="col workflow">{{workflow}}</div>
+						</div>
+					</div>
+					 </script>
+				</div>
+
+					<script type="template" id="template2">	
+						<div class="projects" id="35824_projects">
+							<div class="project" id="148584_project">
+								<div class="row active" rowid="148584" rowtype="project">
+									<div class="col expand"></div>
+									<div class="col name">
+										<div class="ko_KR">{{name}}</div>
+									</div>
+									<div class="col duedate">{{due_date}}</div>
+									<div class="col progress" value="">
+										<div class="progress-bar-white"></div>
+										<div class="progress-bar-blue" style="width: {{progres}}px;"></div>
+									</div>
+									<div class="col wordcount">{{wordcount}}</div>
+									<div class="col status" status="{{status}}"></div>
+								</div>
+
+							</div>
+						</div>
+					</script>	
+					
+					<script type="template" id="template3">
+						<div class="tasks" id="148584_tasks">
+							<div class="task" id="1286702_task">
+								<div class="row active  " rowid="1286702" rowtype="task">
+									<div class="col name fileicon" filename="{{filename}}">{{fileicon}}</div>
+									<div class="col duedate">{{due_date}}</div>
+									<div class="col id">{{id}}</div>
+									<div class="col progress" value="">
+										<div class="progress-bar-white"></div>
+										<div class="progress-bar-blue" style="width: {{progres}}px;"></div>
+									</div>
+									<div class="col wordcount">{{wordcount}}</div>
+									<div class="col status" status="{{status}}"></div>
+									<div class="col users">
+										<div class="usertype claimed" usertype="Administrator">{{users}}</div>
+									</div>
+									<div class="col workflow" steptype="Human">{{workflow}}</div>
+								</div>
+							</div>
+						</div>
+					</script>	
+
+
+				<div id="dividerbar">
+					<div id="handle"></div>
+					<div id="slider" style="height: 8px; top: -8px; position: relative;"></div>
+				</div>
+				<div id="infopane" style="height: 248px;">
+					<div id="tabs" class="tabs">
+						<div id="summarytab" class="tab selected">
+							<div id="tabSummary">Summary</div>
+						</div>
+						<div id="scopingtab" class="tab">
+							<div id="tabScoping">Scoping</div>
+						</div>
+						<div id="historytab" class="tab">
+							<div id="tabHistory">History</div>
+						</div>
+					</div>
+					<div id="content">
+						<div id="project" class="section project">
+							<div class="textfield half">
+								<div class="key">Project Name</div>
+								<div class="value">testMobileMeWF_moravia</div>
+							</div>
+							<div class="textfield half">
+								<div class="key">Creation Date</div>
+								<div class="value">10/03/11 6:49 PM</div>
+							</div>
+							<div class="textfield half">
+								<div class="key">Project ID</div>
+								<div class="value">45379</div>
+							</div>
+							<div class="textfield half">
+								<div class="key">Due Date</div>
+								<div class="value">10/04/11 10:00 AM</div>
+							</div>
+							<div class="textfield half">
+								<div class="key">Workgroup</div>
+								<div class="value">MobileMe</div>
+							</div>
+							<div class="textfield half">
+								<div class="key">Created by</div>
+								<div class="value">Pankaj Sharma</div>
+							</div>
+							<div class="textfield ">
+								<div class="key">Description</div>
+								<div class="value">testMobileMeWF_moravia</div>
+							</div>
+						</div>
+						<div id="projectattributes" class="section projectattributes"></div>
+						<div id="taskattributes" class="section taskattributes"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="footer">
+			<div id="addfolder"></div>
+			<div id="editfolder"></div>
+			<div id="itemcounter">11 items</div>
+		</div>
+
+	</div>
+	<!-- END wrapper -->
+
+	<div id="huds"></div>
+
+	<div id="panes" style="visibility: hidden;"></div>
+
+	<script src="js/jquery-1.7.1.min.js"></script>
+	<script src="js/records.js"></script>
+	<script src="js/splitter.js"></script>	
+	<script src="js/iworld.js"></script>
+
+</body></html>
