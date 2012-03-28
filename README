@@ -6,15 +6,80 @@ Things to do:
 
 Use Less for CSS: 
 Learn more about LEss here  
-
 http://lesscss.org/
-
 http://incident57.com/less/video/tutorial.mov
 
 
-1. Make the current code working in Firefox. 
-2. revamp the whole css file using Less. 
-3. S - Change the wireframe as per Christof's requirements. 
-4. Use the Hungarian notation for coding 'Jay' told you before.  
-5. 
+B-	1. Make the current code working on Firefox. 
+
+B - 4. Use the Hungarian notation for coding 'Jay' told you before.  
+
+
+
+H - 5. rename the folder js  to "scripts"  & implement the changes required inside the code base.
+
+H - Put more json data in other project groups too, it will look more functional
+
+H - the icons in front of projects under project groups aren't changing. 
+
+H - Make the details tab  - below on the page  functional /clickable  - we'll display data on that later. 
+
+
+H - Make the table columns resizable like Finder window.   we discussed last night. 
+
+
+
+S - Implement Selectable http://jqueryui.com/demos/selectable/  on the project listings  so that when we trail the mouse all the listings are selectable.
+
+
+
+S - 2. revamp the whole css file using Less. 
+S - 3.  Change the wireframe as per Christof's requirements.
+
+S - Using JqueryUI.com - create the modal popup when someone selects some rows and clicks Assignees button, / Complete button.
+	make the rows 
+
+S - Implement Autocomplete using the json file implemented by H   -   http://jqueryui.com/demos/autocomplete/
+
+
+S - Create a new file from existing file - name it wireframe2 or something. Implement these features in Mockup / 
+
+	1. Create a column for Flag like in gmail.
+	2. put some more SFs in png
+	3. Remove the About & Help buttons,,  Only the Logout button stays. 
+	
+
+
+
+
+
+
+
+
+
+
+--------These questions are for Christof  ------ 
+
+
+@Christof  do we need the prject groups sortable? http://jqueryui.com/demos/sortable/
+
+@Christof  can we use  datepicker for due date?  It could be placed inside the modal popup.
+
+
+@ chri  = how to break html in pieces like ror
+
+
+
+@ even for this much data rendering  page is using 
+
+
+
+
+
+
+
+
+
+
+
 
